@@ -1,58 +1,36 @@
 {
   "ru": {
-    "alt": "Marks — все закладки Brave в одном минималистичном окне",
-    "line1": "Закладки в одном окне.",
-    "line2": "Открыть, добавить, удалить — и всё",
+    "alt": "Marks — закладки Brave в одном окне",
+    "title": "Закладки Brave в одном окне",
+    "sub": "Открыть, добавить, удалить. Без сети и лишних функций.",
     "cta": "Скачать ZIP",
     "add": "+ Добавить",
     "del": "удалить?",
-    "featuresTitle": "Возможности",
-    "featuresHead": "Только закладки — *ничего лишнего*",
-    "featuresAlt": "Возможности Marks",
-    "features": [
-      ["Один клик", "Закладка открывается в новой вкладке. Ctrl+клик или колёсико — в фоне."],
-      ["Новые сверху", "Закладки из всех корневых папок одним списком, от новых к старым."],
-      ["Быстрое добавление", "Название и адрес текущей вкладки уже в форме — остаётся выбрать папку."],
-      ["Удаление без промаха", "✕ при наведении, затем «удалить?» — случайно не сотрёте."],
-      ["Тихий дизайн", "Без ярких плашек. Светлая и тёмная тема сами по системе."],
-      ["Приватно", "Нет сети, аналитики и сторонних библиотек. Всё остаётся в браузере."]
+    "controlsTitle": "Управление",
+    "controlsAlt": "Управление Marks",
+    "controls": [
+      ["Клик", "открыть в новой вкладке"],
+      ["Ctrl+клик", "открыть в фоне"],
+      ["✕ → удалить?", "удалить закладку"],
+      ["+ Добавить", "сохранить текущую вкладку"]
     ],
-    "numbersChip": "В цифрах",
-    "numbersHead": "Лёгкое, *как заметка*",
-    "numbersAlt": "Marks в цифрах",
-    "numbers": [
-      ["3", "разрешения"],
-      ["0", "зависимостей"],
-      ["0", "запросов в сеть"],
-      ["~9 КБ", "весь код"]
-    ]
+    "facts": "Новые закладки сверху · светлая и тёмная тема · 3 разрешения · 0 зависимостей"
   },
   "en": {
-    "alt": "Marks — all your Brave bookmarks in one minimal popup",
-    "line1": "Bookmarks in one popup.",
-    "line2": "Open, add, delete — that's it",
+    "alt": "Marks — Brave bookmarks in one popup",
+    "title": "Brave bookmarks in one popup",
+    "sub": "Open, add, delete. No network, no extras.",
     "cta": "Download ZIP",
     "add": "+ Add",
     "del": "delete?",
-    "featuresTitle": "Features",
-    "featuresHead": "Just bookmarks — *nothing else*",
-    "featuresAlt": "Marks features",
-    "features": [
-      ["One click", "Opens the bookmark in a new tab. Ctrl+click or middle click opens it in the background."],
-      ["Newest first", "Bookmarks from every root folder in one list, newest to oldest."],
-      ["Quick add", "The current tab's title and URL are prefilled — just pick a folder."],
-      ["Safe delete", "✕ on hover, then “delete?” — no accidental removals."],
-      ["Quiet design", "No loud colors. Light and dark themes follow your system."],
-      ["Private", "No network, analytics or third-party code. Everything stays in the browser."]
+    "controlsTitle": "Controls",
+    "controlsAlt": "Marks controls",
+    "controls": [
+      ["Click", "open in a new tab"],
+      ["Ctrl+click", "open in the background"],
+      ["✕ → delete?", "delete the bookmark"],
+      ["+ Add", "save the current tab"]
     ],
-    "numbersChip": "By the numbers",
-    "numbersHead": "Light *as a note*",
-    "numbersAlt": "Marks by the numbers",
-    "numbers": [
-      ["3", "permissions"],
-      ["0", "dependencies"],
-      ["0", "network requests"],
-      ["~9 KB", "all the code"]
-    ]
+    "facts": "Newest first · light and dark theme · 3 permissions · 0 dependencies"
   }
 }
