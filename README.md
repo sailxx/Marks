@@ -1,5 +1,9 @@
 <div align="center">
 
+[Русский](README.ru.md) · **English**
+
+<br>
+
 <img src="assets/readme/hero-en.svg" width="100%" alt="Marks — Brave bookmarks in one popup">
 
 <a href="https://github.com/sailxx/Marks/archive/refs/heads/main.zip"><img src="assets/readme/cta-en.svg" height="52" alt="Download ZIP"></a>
