@@ -1,23 +1,19 @@
 <div align="center">
 
-**Русский** · [English](README.en.md)
+<img src="assets/readme/hero-en.svg" width="100%" alt="Marks — Brave bookmarks in one popup">
 
-<br>
-
-<img src="assets/readme/hero-ru.svg" width="100%" alt="Marks — закладки Brave в одном окне">
-
-<a href="https://github.com/sailxx/Marks/archive/refs/heads/main.zip"><img src="assets/readme/cta-ru.svg" height="52" alt="Скачать ZIP"></a>
+<a href="https://github.com/sailxx/Marks/archive/refs/heads/main.zip"><img src="assets/readme/cta-en.svg" height="52" alt="Download ZIP"></a>
 
 </div>
 
 <br>
 
-<img src="assets/readme/controls-ru.svg" width="100%" alt="Клик — открыть, Ctrl+клик — в фоне, ✕ — удалить, + Добавить — сохранить текущую вкладку">
+<img src="assets/readme/controls-en.svg" width="100%" alt="Click — open, Ctrl+click — background, ✕ — delete, + Add — save the current tab">
 
-## Установка
+## Install
 
-1. Скачайте [ZIP](https://github.com/sailxx/Marks/archive/refs/heads/main.zip) и распакуйте.
-2. Откройте `brave://extensions` и включите «Режим разработчика».
-3. «Загрузить распакованное» → папка с `manifest.json`.
+1. Download the [ZIP](https://github.com/sailxx/Marks/archive/refs/heads/main.zip) and unpack it.
+2. Open `brave://extensions` and turn on Developer mode.
+3. "Load unpacked" → the folder with `manifest.json`.
 
-Разрешения: `bookmarks` — закладки, `activeTab` — текущая вкладка для формы, `favicon` — иконки сайтов.
+Permissions: `bookmarks` — bookmarks, `activeTab` — current tab for the form, `favicon` — site icons.
