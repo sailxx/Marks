@@ -2,15 +2,17 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marks</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <main id="list"></main>
 
   <form id="add" hidden>
-    <input id="add-title" placeholder="Название" autocomplete="off">
-    <input id="add-url" placeholder="https://" autocomplete="off" required>
-    <select id="add-folder"></select>
+    <input id="add-title" aria-label="Название" placeholder="Название" autocomplete="off">
+    <input id="add-url" aria-label="URL" placeholder="https://" autocomplete="off" required>
+    <select id="add-folder" aria-label="Папка"></select>
     <div class="row">
       <button type="button" id="add-cancel" class="ghost">Отмена</button>
       <button type="submit">Сохранить</button>

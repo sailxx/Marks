@@ -1,0 +1,31 @@
+name: Release Marks
+on:
+  push:
+    branches: [main]
+    paths: [manifest.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check JavaScript
+        run: node --check popup.js
+      - name: Package extension
+        run: python tools/package.py
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          VERSION=$(node -p "require('./manifest.json').version")
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            echo "Release v$VERSION already exists; leaving it unchanged."
+            exit 0
+          fi
+          gh release create "v$VERSION" "dist/Marks-$VERSION.zip" --target "$GITHUB_SHA" --title "Marks $VERSION" --notes-file RELEASE_NOTES.md

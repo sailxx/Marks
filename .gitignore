@@ -1,2 +1,6 @@
 tools/readme/.font/
-tools/readme/node_modules/
+.sharrowkin/
+dist/
+node_modules/
+__pycache__/
+.env

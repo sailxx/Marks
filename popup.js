@@ -21,6 +21,15 @@ function hasBookmarks(node) {
 function renderItem(node) {
   const row = el('div', 'item');
   row.title = node.url;
+  row.tabIndex = 0;
+  row.setAttribute('role', 'link');
+  row.setAttribute('aria-label', node.title || node.url);
+  row.addEventListener('keydown', (event) => {
+    if (event.target === row && event.key === 'Enter') {
+      event.preventDefault();
+      row.dispatchEvent(new MouseEvent('click', { ctrlKey: event.ctrlKey, metaKey: event.metaKey }));
+    }
+  });
 
   const img = el('img', 'fav');
   img.src = favicon(node.url);
@@ -35,6 +44,7 @@ function renderItem(node) {
 
   const del = el('button', 'del', '✕');
   del.title = 'Удалить';
+  del.setAttribute('aria-label', `Удалить: ${node.title || node.url}`);
   del.addEventListener('click', async (e) => {
     e.stopPropagation();
     if (!del.classList.contains('armed')) {

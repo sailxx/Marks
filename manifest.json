@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Marks",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Минималистичный список закладок: открыть, добавить, удалить.",
   "permissions": ["bookmarks", "activeTab", "favicon"],
   "action": {
