@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Marks popup layout regression</title>
+<style>body { background: #111; color: #eee; font: 14px system-ui; } iframe { border: 1px solid #444; height: 580px; }</style>
+<h1>Popup layout regression</h1>
+<p id="result">Checking…</p>
+<iframe title="Popup at initial narrow viewport" src="/preview" width="100"></iframe>
+<script>
+const frame = document.querySelector('iframe');
+frame.addEventListener('load', async () => {
+  const result = document.getElementById('result');
+  const doc = frame.contentDocument;
+  const check = (condition, message) => { if (!condition) throw new Error(message); };
+  const fits = element => element.scrollWidth <= element.clientWidth;
+  try {
+    // Start below the desired popup width, as Chromium does during autosizing.
+    check(doc.body.getBoundingClientRect().width === 360, 'Body shrank at startup');
+    check(doc.documentElement.getBoundingClientRect().width === 360, 'Document shrank at startup');
+    check(fits(doc.getElementById('list')), 'Bookmark list overflows');
+    check(doc.documentElement.lang === 'en', 'Document language is not English');
+    for (const element of [doc.documentElement, doc.body]) {
+      const style = frame.contentWindow.getComputedStyle(element);
+      check(style.borderTopLeftRadius === '0px', 'Popup still has rounded outer corners');
+      check(style.backgroundColor === 'rgb(0, 0, 0)', 'Popup background is not OLED black');
+      check(style.borderTopWidth === '0px', 'Popup still has an outer border');
+      check(style.overflowX === 'hidden', 'Popup allows horizontal overflow');
+    }
+    check(doc.getElementById('toggle-add').textContent === '+ Add', 'Add button is not English');
+    frame.width = '360';
+    const name = doc.querySelector('.name');
+    name.textContent = 'A very long bookmark title '.repeat(20);
+    check(fits(doc.getElementById('list')), 'Long bookmark causes horizontal scrolling');
+    doc.getElementById('toggle-add').click();
+    await new Promise(resolve => setTimeout(resolve, 50));
+    check(!doc.getElementById('add').hidden, 'Add form did not open');
+    check(fits(doc.body), 'Open form overflows');
+    doc.getElementById('add-cancel').click();
+    check(doc.getElementById('add').hidden, 'Cancel did not hide the form');
+    result.textContent = 'PASS: 100px startup viewport → 360px popup; long titles and add form fit.';
+  } catch (error) {
+    result.textContent = 'FAIL: ' + error.message;
+  }
+});
+</script>
+</html>

@@ -4,6 +4,8 @@
 - Refined spacing, quieter separators, and a clear Save action.
 - Visible keyboard focus and Enter support for bookmark rows.
 - Fixed the add form remaining visible when it should be hidden.
+- English interface throughout; user bookmark and folder names stay unchanged.
+- Fixed popup sizing at startup and removed the rounded outer frame for a seamless black background.
 - No new permissions. Existing bookmarks are unchanged.
 
 ### Install or update

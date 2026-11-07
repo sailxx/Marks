@@ -14,6 +14,23 @@ for identifier in re.findall(r"getElementById\('([^']+)'\)", js):
     assert f'id="{identifier}"' in html, identifier
 assert '[hidden] { display: none !important; }' in css
 assert '--bg: #000;' in css
+# Chromium measures extension popups from a narrow initial viewport.
+# A viewport-relative cap here prevents the popup from growing to 360px.
+for selector in ('html', 'body'):
+    block = re.search(r'\b' + selector + r'\s*\{([^}]+)\}', css).group(1)
+    assert 'width: 360px;' in block, selector
+    assert 'min-width: 360px;' in block, selector
+    assert not re.search(r'\b(?:max-)?width\s*:[^;]*\b(?:vw|%)', block), selector
+assert '<html lang="en">' in html
+assert not re.search(r'[А-Яа-яЁё]', html + manifest['description'])
+# Comments may be in any language, but shipped interface strings must be English.
+assert not re.search(r'[А-Яа-яЁё]', re.sub(r'//[^\n]*', '', js))
+for selector in ('html', 'body'):
+    block = re.search(r'\b' + selector + r'\s*\{([^}]+)\}', css).group(1)
+    assert 'border-radius: 0;' in block, selector
+    assert 'background: var(--bg);' in block, selector
+    assert 'overflow: hidden;' in block, selector
+assert 'border: 0;' in re.search(r'\bbody\s*\{([^}]+)\}', css).group(1)
 assert 'prefers-reduced-motion' in css
 assert 'form id="add" hidden' in html
 with ZipFile(root / 'dist' / f'Marks-{manifest["version"]}.zip') as archive:

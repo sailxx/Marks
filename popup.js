@@ -43,13 +43,13 @@ function renderItem(node) {
   const name = el('span', 'name', node.title || node.url);
 
   const del = el('button', 'del', '✕');
-  del.title = 'Удалить';
-  del.setAttribute('aria-label', `Удалить: ${node.title || node.url}`);
+  del.title = 'Delete';
+  del.setAttribute('aria-label', `Delete: ${node.title || node.url}`);
   del.addEventListener('click', async (e) => {
     e.stopPropagation();
     if (!del.classList.contains('armed')) {
       del.classList.add('armed');
-      del.textContent = 'удалить?';
+      del.textContent = 'Delete?';
       setTimeout(() => {
         del.classList.remove('armed');
         del.textContent = '✕';
@@ -74,7 +74,7 @@ function renderItem(node) {
 function renderFolder(node, open) {
   const box = el('details', 'folder');
   box.open = open;
-  box.append(el('summary', null, node.title || 'Без названия'));
+  box.append(el('summary', null, node.title || 'Untitled'));
   const links = node.children.filter((c) => c.url).sort((a, b) => (b.dateAdded || 0) - (a.dateAdded || 0));
   for (const child of links) box.append(renderItem(child));
   for (const child of node.children) {
@@ -101,7 +101,7 @@ async function render() {
     .sort((a, b) => (b.dateAdded || 0) - (a.dateAdded || 0));
   const subfolders = tops.flatMap((top) => top.children.filter((c) => !c.url && hasBookmarks(c)));
 
-  if (!links.length && !subfolders.length) list.append(el('div', 'empty', 'Закладок пока нет'));
+  if (!links.length && !subfolders.length) list.append(el('div', 'empty', 'No bookmarks yet'));
   for (const link of links) list.append(renderItem(link));
   for (const folder of subfolders) list.append(renderFolder(folder, false));
 
@@ -110,7 +110,7 @@ async function render() {
   const selected = addFolder.value;
   addFolder.replaceChildren(
     ...folders.map((f) => {
-      const o = el('option', null, '  '.repeat(f.depth) + (f.title || 'Без названия'));
+      const o = el('option', null, '  '.repeat(f.depth) + (f.title || 'Untitled'));
       o.value = f.id;
       return o;
     })

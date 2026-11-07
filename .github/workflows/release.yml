@@ -18,6 +18,8 @@ jobs:
         run: node --check popup.js
       - name: Package extension
         run: python tools/package.py
+      - name: Check release contents
+        run: python tests/check_release.py
       - name: Publish release
         env:
           GH_TOKEN: ${{ github.token }}

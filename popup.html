@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,17 +10,17 @@
   <main id="list"></main>
 
   <form id="add" hidden>
-    <input id="add-title" aria-label="Название" placeholder="Название" autocomplete="off">
+    <input id="add-title" aria-label="Title" placeholder="Title" autocomplete="off">
     <input id="add-url" aria-label="URL" placeholder="https://" autocomplete="off" required>
-    <select id="add-folder" aria-label="Папка"></select>
+    <select id="add-folder" aria-label="Folder"></select>
     <div class="row">
-      <button type="button" id="add-cancel" class="ghost">Отмена</button>
-      <button type="submit">Сохранить</button>
+      <button type="button" id="add-cancel" class="ghost">Cancel</button>
+      <button type="submit">Save</button>
     </div>
   </form>
 
   <footer>
-    <button id="toggle-add" class="add-btn">+ Добавить</button>
+    <button id="toggle-add" class="add-btn">+ Add</button>
   </footer>
 
   <script src="popup.js"></script>
